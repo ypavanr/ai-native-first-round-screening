@@ -1,0 +1,402 @@
+[
+  {
+    "id": 1,
+    "topic": "OSI Model",
+    "difficulty": "Core",
+    "question": "Explain the 7 layers of the OSI Model.",
+    "answer": "The OSI model consists of 7 layers: 1) Physical (transmission of raw bits), 2) Data Link (framing, MAC addressing, error detection), 3) Network (routing, IP addressing), 4) Transport (end-to-end delivery, TCP/UDP), 5) Session (session management), 6) Presentation (data translation, encryption), and 7) Application (user interface, network services like HTTP/FTP).",
+    "key_concepts": ["Physical", "Data Link", "Network", "Transport", "Session", "Presentation", "Application"]
+  },
+  {
+    "id": 2,
+    "topic": "Protocols",
+    "difficulty": "Core",
+    "question": "What is the difference between TCP and UDP?",
+    "answer": "TCP (Transmission Control Protocol) is connection-oriented, reliable, and ensures ordered delivery of packets with error checking and retransmission (used in HTTP, Email). UDP (User Datagram Protocol) is connectionless, unreliable, and faster, sending packets without checking for arrival or ordering (used in Video Streaming, Gaming, VoIP).",
+    "key_concepts": ["Connection-oriented vs Connectionless", "Reliability", "Retransmission", "Ordering", "Speed"]
+  },
+  {
+    "id": 3,
+    "topic": "Protocols",
+    "difficulty": "Core",
+    "question": "Explain the TCP Three-Way Handshake.",
+    "answer": "The Three-Way Handshake establishes a TCP connection. 1) SYN: The client sends a SYN (synchronize) packet to the server to initiate connection. 2) SYN-ACK: The server responds with a SYN-ACK packet, acknowledging the client's SYN and sending its own SYN. 3) ACK: The client sends an ACK packet back to the server. The connection is now established.",
+    "key_concepts": ["SYN", "SYN-ACK", "ACK", "Connection establishment", "Synchronization"]
+  },
+  {
+    "id": 4,
+    "topic": "Web",
+    "difficulty": "Intermediate",
+    "question": "What happens when you type a URL into a browser and hit enter?",
+    "answer": "1) The browser checks the cache/DNS to resolve the domain name to an IP address. 2) The browser initiates a TCP connection with the server (3-way handshake). 3) The browser sends an HTTP request to the web server. 4) The server processes the request and sends back an HTTP response (HTML content). 5) The browser renders the HTML content.",
+    "key_concepts": ["DNS resolution", "IP address", "TCP connection", "HTTP Request/Response", "Rendering"]
+  },
+  {
+    "id": 5,
+    "topic": "Addressing",
+    "difficulty": "Basic",
+    "question": "What is the difference between MAC Address and IP Address?",
+    "answer": "A MAC (Media Access Control) Address is a unique hardware identifier assigned to the Network Interface Card (NIC) by the manufacturer; it operates at the Data Link Layer (Layer 2) and is used for local communication. An IP (Internet Protocol) Address is a logical address assigned by the network administrator or DHCP; it operates at the Network Layer (Layer 3) and is used for routing across different networks.",
+    "key_concepts": ["Hardware vs Logical", "Layer 2 vs Layer 3", "Physical address", "Routing", "Immutability"]
+  },
+  {
+    "id": 6,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What is DNS and how does it work?",
+    "answer": "DNS (Domain Name System) translates human-readable domain names (like google.com) into machine-readable IP addresses. When a user requests a domain, the resolver checks local cache, then queries Root Servers, TLD Servers (e.g., .com), and finally Authoritative Name Servers to find the IP address.",
+    "key_concepts": ["Name resolution", "IP conversion", "Root Server", "TLD", "Recursive Query"]
+  },
+  {
+    "id": 7,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What is DHCP?",
+    "answer": "DHCP (Dynamic Host Configuration Protocol) is a network management protocol used to automatically assign IP addresses and other network configuration parameters (like Subnet Mask, Default Gateway) to devices on a network. It prevents manual configuration errors and IP conflicts.",
+    "key_concepts": ["Automatic assignment", "IP configuration", "Client-Server", "Lease time"]
+  },
+  {
+    "id": 8,
+    "topic": "Security",
+    "difficulty": "Intermediate",
+    "question": "What is the difference between HTTP and HTTPS?",
+    "answer": "HTTP (HyperText Transfer Protocol) sends data in plaintext, making it vulnerable to eavesdropping. HTTPS (HTTP Secure) uses SSL/TLS encryption to secure the communication channel. In HTTPS, data is encrypted before transmission, ensuring confidentiality and integrity.",
+    "key_concepts": ["Encryption", "Plaintext", "SSL/TLS", "Security", "Port 80 vs 443"]
+  },
+  {
+    "id": 9,
+    "topic": "Routing",
+    "difficulty": "Basic",
+    "question": "What is the difference between a Router, Switch, and Hub?",
+    "answer": "A Hub broadcasts data to all connected ports (Layer 1, dumb device). A Switch forwards data only to the specific destination device based on MAC address (Layer 2, intelligent). A Router connects different networks together and routes packets based on IP address (Layer 3).",
+    "key_concepts": ["Broadcast domain", "MAC vs IP", "Layer 1/2/3", "Packet forwarding", "Collision domain"]
+  },
+  {
+    "id": 10,
+    "topic": "Addressing",
+    "difficulty": "Advanced",
+    "question": "What is Subnetting and why is it used?",
+    "answer": "Subnetting is the process of dividing a single large network (IP address space) into smaller, manageable sub-networks (subnets). It improves network performance (reduces broadcast traffic) and security (segments traffic), and conserves IP addresses.",
+    "key_concepts": ["Network division", "Performance", "Security", "Subnet mask", "Broadcast reduction"]
+  },
+  {
+    "id": 11,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What is ARP?",
+    "answer": "ARP (Address Resolution Protocol) is used to map a known IP address to a physical machine's MAC address within a local network. When a device wants to send a packet to an IP, it broadcasts an ARP request to find the corresponding MAC address.",
+    "key_concepts": ["IP to MAC mapping", "Broadcast", "Resolution", "Local network"]
+  },
+  {
+    "id": 12,
+    "topic": "Addressing",
+    "difficulty": "Advanced",
+    "question": "Difference between IPv4 and IPv6.",
+    "answer": "IPv4 uses 32-bit addresses (approx 4.3 billion addresses) and is written in dot-decimal notation. IPv6 uses 128-bit addresses (virtually infinite space) and is written in hexadecimal. IPv6 includes built-in security (IPSec) and simpler header processing.",
+    "key_concepts": ["32-bit vs 128-bit", "Address space", "Header complexity", "Security"]
+  },
+  {
+    "id": 13,
+    "topic": "Security",
+    "difficulty": "Advanced",
+    "question": "What is a Firewall?",
+    "answer": "A Firewall is a network security device that monitors and filters incoming and outgoing network traffic based on an organization's previously established security policies. It acts as a barrier between a trusted internal network and untrusted external networks (like the internet).",
+    "key_concepts": ["Traffic filtering", "Security barrier", "Rules/Policies", "Incoming/Outgoing"]
+  },
+  {
+    "id": 14,
+    "topic": "Security",
+    "difficulty": "Intermediate",
+    "question": "What is DoS and DDoS attack?",
+    "answer": "A DoS (Denial of Service) attack aims to shut down a machine or network, making it inaccessible to its intended users, typically by flooding it with traffic from a single source. A DDoS (Distributed Denial of Service) attack does the same but uses multiple compromised systems (botnet) to flood the target, making it harder to stop.",
+    "key_concepts": ["Flooding", "Availability", "Single vs Multiple sources", "Botnet"]
+  },
+  {
+    "id": 15,
+    "topic": "Tools",
+    "difficulty": "Basic",
+    "question": "What is the Ping command?",
+    "answer": "Ping (Packet Internet Groper) is a utility used to test the reachability of a host on an Internet Protocol (IP) network. It sends ICMP Echo Request messages to the target and waits for ICMP Echo Reply messages, measuring the round-trip time.",
+    "key_concepts": ["Reachability", "ICMP", "Latency", "Troubleshooting"]
+  },
+  {
+    "id": 16,
+    "topic": "Protocols",
+    "difficulty": "Advanced",
+    "question": "What is NAT (Network Address Translation)?",
+    "answer": "NAT is a method used to remap one IP address space into another. It is commonly used to allow multiple devices on a private local network to share a single public IP address to access the internet. This conserves public IPv4 addresses and adds a layer of security.",
+    "key_concepts": ["Public vs Private IP", "Address conservation", "Security", "Remapping"]
+  },
+  {
+    "id": 17,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What are the common HTTP methods?",
+    "answer": "1) GET: Retrieve data from a server. 2) POST: Submit data to be processed (e.g., form). 3) PUT: Update/Replace a resource. 4) DELETE: Remove a resource. 5) PATCH: Partially update a resource.",
+    "key_concepts": ["GET", "POST", "PUT", "DELETE", "CRUD operations"]
+  },
+  {
+    "id": 18,
+    "topic": "Models",
+    "difficulty": "Intermediate",
+    "question": "Explain the TCP/IP Model.",
+    "answer": "The TCP/IP model is a condensed version of the OSI model with 4 layers: 1) Network Interface (combines OSI Physical & Data Link), 2) Internet (OSI Network), 3) Transport (OSI Transport), and 4) Application (combines OSI Session, Presentation, Application).",
+    "key_concepts": ["4 Layers", "Network Interface", "Internet", "Transport", "Application", "Condensed"]
+  },
+  {
+    "id": 19,
+    "topic": "Security",
+    "difficulty": "Advanced",
+    "question": "What is a VPN (Virtual Private Network)?",
+    "answer": "A VPN creates a secure, encrypted connection (tunnel) over a less secure network, such as the internet. It allows users to send and receive data across shared or public networks as if their computing devices were directly connected to the private network, masking their IP address.",
+    "key_concepts": ["Tunneling", "Encryption", "Privacy", "Remote access", "Masking IP"]
+  },
+  {
+    "id": 20,
+    "topic": "Architecture",
+    "difficulty": "Advanced",
+    "question": "What is the difference between Proxy and Reverse Proxy?",
+    "answer": "A Forward Proxy sits in front of clients and acts on their behalf to access the internet (hides the client). A Reverse Proxy sits in front of servers and accepts requests from clients to forward to the backend servers (hides the server). Reverse proxies are used for load balancing, caching, and security.",
+    "key_concepts": ["Client-side vs Server-side", "Hiding identity", "Load balancing", "Caching"]
+  },
+  {
+    "id": 21,
+    "topic": "Tools",
+    "difficulty": "Basic",
+    "question": "What is Localhost?",
+    "answer": "Localhost refers to the computer that a program is currently running on. The IP address for localhost is typically 127.0.0.1 (IPv4) or ::1 (IPv6). It is used for testing and loopback purposes.",
+    "key_concepts": ["127.0.0.1", "Current machine", "Loopback", "Testing"]
+  },
+  {
+    "id": 22,
+    "topic": "Tools",
+    "difficulty": "Intermediate",
+    "question": "What is a Port Number?",
+    "answer": "A Port Number is a 16-bit integer that identifies a specific process or service running on a server. While an IP address identifies the machine, the port identifies the specific application (e.g., HTTP uses port 80, HTTPS uses 443, SSH uses 22).",
+    "key_concepts": ["Service identifier", "Process identification", "Standard ports", "Endpoint"]
+  },
+  {
+    "id": 23,
+    "topic": "Protocols",
+    "difficulty": "Advanced",
+    "question": "What is ICMP?",
+    "answer": "ICMP (Internet Control Message Protocol) is a network layer protocol used by network devices to send error messages and operational information (e.g., host unreachable, time exceeded). It is not used for data exchange but for diagnostics (used by Ping and Traceroute).",
+    "key_concepts": ["Diagnostics", "Error reporting", "Network Layer", "No data payload"]
+  },
+  {
+    "id": 24,
+    "topic": "Routing",
+    "difficulty": "Advanced",
+    "question": "What is OSPF?",
+    "answer": "OSPF (Open Shortest Path First) is a link-state routing protocol used to find the best path for data packets within a single Autonomous System (AS). It uses Dijkstra's algorithm to calculate the shortest path tree.",
+    "key_concepts": ["Link-state", "Routing protocol", "Dijkstra", "Shortest path", "Interior Gateway"]
+  },
+  {
+    "id": 25,
+    "topic": "Addressing",
+    "difficulty": "Advanced",
+    "question": "What is a Default Gateway?",
+    "answer": "A Default Gateway is the node (router) in a computer network that serves as the forwarding host (router) to other networks when no other route specification matches the destination IP address of a packet. It is the exit point for traffic leaving the local network.",
+    "key_concepts": ["Exit point", "Router", "Traffic forwarding", "Local network"]
+  },
+  {
+    "id": 26,
+    "topic": "Physical",
+    "difficulty": "Basic",
+    "question": "What is Latency vs Bandwidth?",
+    "answer": "Bandwidth is the maximum rate of data transfer across a given path (capacity/width of the pipe). Latency is the time it takes for a data packet to travel from source to destination (delay/speed). You can have high bandwidth but high latency.",
+    "key_concepts": ["Capacity vs Delay", "Speed", "Throughput", "Response time"]
+  },
+  {
+    "id": 27,
+    "topic": "Security",
+    "difficulty": "Advanced",
+    "question": "What is SSL/TLS Handshake?",
+    "answer": "The SSL/TLS Handshake establishes a secure connection. 1) Client Hello (capabilities). 2) Server Hello (selects protocol/cipher, sends certificate). 3) Client verifies certificate. 4) Key exchange (creating session keys). 5) Secure communication begins using symmetric encryption.",
+    "key_concepts": ["Encryption", "Certificate", "Key exchange", "Symmetric/Asymmetric", "Secure session"]
+  },
+  {
+    "id": 28,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What is FTP?",
+    "answer": "FTP (File Transfer Protocol) is a standard network protocol used for the transfer of computer files between a client and server on a computer network. It operates on port 21.",
+    "key_concepts": ["File transfer", "Client-Server", "Port 21", "Upload/Download"]
+  },
+  {
+    "id": 29,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What is SMTP?",
+    "answer": "SMTP (Simple Mail Transfer Protocol) is the standard protocol for sending emails across the Internet. It pushes email from the client to the mail server, or between mail servers. Receiving protocols are usually POP3 or IMAP.",
+    "key_concepts": ["Email sending", "Push protocol", "Mail server", "Port 25/587"]
+  },
+  {
+    "id": 30,
+    "topic": "Wireless",
+    "difficulty": "Basic",
+    "question": "What is the difference between Wi-Fi and Ethernet?",
+    "answer": "Ethernet is a wired communication technology that uses cables (Cat5/6) for faster, more stable, and secure connections. Wi-Fi is a wireless technology using radio waves (IEEE 802.11) for mobility and convenience but is more prone to interference and security risks.",
+    "key_concepts": ["Wired vs Wireless", "Stability", "Mobility", "Radio waves", "Cables"]
+  },
+  {
+    "id": 31,
+    "topic": "Protocols",
+    "difficulty": "Advanced",
+    "question": "What is Flow Control vs Congestion Control?",
+    "answer": "Flow Control prevents the sender from overwhelming the receiver (fast sender, slow receiver) using windowing. Congestion Control prevents the sender from overwhelming the network infrastructure (routers/links) itself (e.g., TCP Slow Start).",
+    "key_concepts": ["Receiver protection", "Network protection", "Windowing", "Traffic management"]
+  },
+  {
+    "id": 32,
+    "topic": "Architecture",
+    "difficulty": "Intermediate",
+    "question": "What is Unicast, Multicast, and Broadcast?",
+    "answer": "Unicast is one-to-one communication (most common). Multicast is one-to-many communication to a specific group of subscribers. Broadcast is one-to-all communication where data is sent to everyone in the network segment.",
+    "key_concepts": ["One-to-one", "One-to-many", "One-to-all", "Traffic patterns"]
+  },
+  {
+    "id": 33,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What is a Cookie?",
+    "answer": "A Cookie is a small piece of data stored on the user's computer by the web browser while browsing a website. It is used to remember stateful information (like login status, cart contents) or to record the user's browsing activity.",
+    "key_concepts": ["State management", "Client-side storage", "Session tracking", "Browser"]
+  },
+  {
+    "id": 34,
+    "topic": "Physical",
+    "difficulty": "Basic",
+    "question": "What is a Network Topology?",
+    "answer": "Network Topology refers to the physical or logical layout of a network. Common types include Bus (single line), Star (central hub), Ring (circular), Mesh (interconnected), and Tree (hierarchical). Star is the most common in LANs.",
+    "key_concepts": ["Layout", "Bus", "Star", "Mesh", "Structure"]
+  },
+  {
+    "id": 35,
+    "topic": "Routing",
+    "difficulty": "Advanced",
+    "question": "What is BGP (Border Gateway Protocol)?",
+    "answer": "BGP is the protocol that manages how packets are routed across the internet through the exchange of routing and reachability information between edge routers. It is often called the 'protocol of the internet' as it makes routing decisions between different Autonomous Systems.",
+    "key_concepts": ["Internet backbone", "Autonomous Systems", "Routing", "External Gateway"]
+  },
+  {
+    "id": 36,
+    "topic": "Physical",
+    "difficulty": "Intermediate",
+    "question": "What is Half-Duplex vs Full-Duplex?",
+    "answer": "Half-Duplex allows data transmission in both directions, but only one way at a time (like a walkie-talkie). Full-Duplex allows data transmission in both directions simultaneously (like a telephone call).",
+    "key_concepts": ["Direction", "Simultaneity", "Transmission mode", "Walkie-talkie vs Phone"]
+  },
+  {
+    "id": 37,
+    "topic": "Tools",
+    "difficulty": "Advanced",
+    "question": "What is VLAN (Virtual LAN)?",
+    "answer": "A VLAN is a logical grouping of devices in the same broadcast domain, regardless of their physical location. It allows a physical switch to be partitioned into multiple logical networks to improve security and performance.",
+    "key_concepts": ["Logical grouping", "Broadcast domain", "Segmentation", "Switch partitioning"]
+  },
+  {
+    "id": 38,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What is JSON?",
+    "answer": "JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write and easy for machines to parse and generate. It is the standard format for sending data between a server and a web application.",
+    "key_concepts": ["Data format", "Lightweight", "Key-Value", "Web API"]
+  },
+  {
+    "id": 39,
+    "topic": "Protocols",
+    "difficulty": "Advanced",
+    "question": "What is WebSocket?",
+    "answer": "WebSocket is a communication protocol that provides full-duplex communication channels over a single TCP connection. Unlike HTTP which is request-response, WebSocket allows real-time, two-way interaction (e.g., chat apps, live feeds).",
+    "key_concepts": ["Real-time", "Full-duplex", "Persistent connection", "Two-way"]
+  },
+  {
+    "id": 40,
+    "topic": "Protocols",
+    "difficulty": "Basic",
+    "question": "What is SSH?",
+    "answer": "SSH (Secure Shell) is a cryptographic network protocol for operating network services securely over an unsecured network. It is most commonly used for remote command-line login and remote command execution.",
+    "key_concepts": ["Remote login", "Encryption", "Secure shell", "Command line"]
+  },
+  {
+    "id": 41,
+    "topic": "Architecture",
+    "difficulty": "Intermediate",
+    "question": "What is a CDN (Content Delivery Network)?",
+    "answer": "A CDN is a geographically distributed group of servers that work together to provide fast delivery of Internet content. It caches content (like images, videos) in servers close to the user to reduce latency and load on the origin server.",
+    "key_concepts": ["Caching", "Latency reduction", "Geographical distribution", "Content delivery"]
+  },
+  {
+    "id": 42,
+    "topic": "Security",
+    "difficulty": "Advanced",
+    "question": "What is IPSec?",
+    "answer": "IPsec (Internet Protocol Security) is a suite of protocols that authenticates and encrypts the packets of data to provide secure encrypted communication between two computers over an IP network. It is often used in VPNs.",
+    "key_concepts": ["Encryption", "Authentication", "VPN", "Packet security"]
+  },
+  {
+    "id": 43,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What is SOAP vs REST?",
+    "answer": "SOAP (Simple Object Access Protocol) is a protocol with strict standards, using XML for message format and usually HTTP for transport. REST (Representational State Transfer) is an architectural style that uses standard HTTP methods and generally uses JSON. REST is more flexible and lightweight.",
+    "key_concepts": ["Protocol vs Architecture", "XML vs JSON", "Strict vs Flexible", "Heavyweight vs Lightweight"]
+  },
+  {
+    "id": 44,
+    "topic": "Security",
+    "difficulty": "Intermediate",
+    "question": "What is Man-in-the-Middle Attack?",
+    "answer": "A Man-in-the-Middle (MitM) attack is where an attacker secretly relays and possibly alters the communications between two parties who believe they are directly communicating with each other.",
+    "key_concepts": ["Interception", "Relay", "Eavesdropping", "Alteration"]
+  },
+  {
+    "id": 45,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What is the Loopback Address?",
+    "answer": "The loopback address is a special IP address (127.0.0.1) that allows a machine to send packets to itself. It is useful for testing network software without needing a physical network card or connection.",
+    "key_concepts": ["Self-test", "127.0.0.1", "Internal communication"]
+  },
+  {
+    "id": 46,
+    "topic": "Routing",
+    "difficulty": "Advanced",
+    "question": "What is Traceroute?",
+    "answer": "Traceroute is a network diagnostic tool used to track the path that a packet takes from the source to the destination. It lists all the routers (hops) the packet passes through and measures the delay for each hop.",
+    "key_concepts": ["Path tracking", "Hops", "Diagnostics", "Route analysis"]
+  },
+  {
+    "id": 47,
+    "topic": "Physical",
+    "difficulty": "Basic",
+    "question": "What is a NIC (Network Interface Card)?",
+    "answer": "A NIC is a hardware component (circuit board or chip) that connects a computer to a computer network. It provides the physical interface (port) for the cable or wireless connection.",
+    "key_concepts": ["Hardware", "Connection point", "Interface", "Adapter"]
+  },
+  {
+    "id": 48,
+    "topic": "Protocols",
+    "difficulty": "Intermediate",
+    "question": "What is MIME type?",
+    "answer": "MIME (Multipurpose Internet Mail Extensions) type is a standard way of classifying file types on the Internet. It tells the browser or email client what kind of data is being sent (e.g., 'text/html', 'application/json', 'image/png') so it knows how to handle it.",
+    "key_concepts": ["Content type", "Classification", "Media type", "File handling"]
+  },
+  {
+    "id": 49,
+    "topic": "Security",
+    "difficulty": "Advanced",
+    "question": "What is Two-Factor Authentication (2FA)?",
+    "answer": "2FA is a security process in which users provide two different authentication factors to verify themselves. Typically, this involves something they know (password) and something they have (mobile device/token) or are (biometrics).",
+    "key_concepts": ["Security layers", "Verification", "Password + Token", "Factors"]
+  },
+  {
+    "id": 50,
+    "topic": "Web",
+    "difficulty": "Intermediate",
+    "question": "What are Status Codes (200, 404, 500)?",
+    "answer": "HTTP status codes indicate the result of a request. 2xx (e.g., 200 OK) means success. 3xx (e.g., 301 Moved) means redirection. 4xx (e.g., 404 Not Found) means client error. 5xx (e.g., 500 Internal Server Error) means server error.",
+    "key_concepts": ["Response codes", "Success", "Client Error", "Server Error", "Redirection"]
+  }
+]

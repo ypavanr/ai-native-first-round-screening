@@ -1,0 +1,404 @@
+[
+  {
+    "id": 1,
+    "topic": "Transactions",
+    "difficulty": "Core",
+    "question": "Explain the ACID properties in a database management system.",
+    "answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability. 1) Atomicity ensures that a transaction is treated as a single unit; either all steps are completed, or none are (all-or-nothing). 2) Consistency ensures that a transaction brings the database from one valid state to another, maintaining all integrity constraints. 3) Isolation ensures that concurrently executing transactions do not interfere with each other. 4) Durability guarantees that once a transaction is committed, the changes are permanent and survive system failures.",
+    "key_concepts": ["Atomicity", "Consistency", "Isolation", "Durability", "All-or-nothing", "Permanent", "Concurrency"]
+  },
+  {
+    "id": 2,
+    "topic": "Normalization",
+    "difficulty": "Intermediate",
+    "question": "What is Normalization and what is the difference between 2NF and 3NF?",
+    "answer": "Normalization is the process of organizing data to reduce redundancy and improve data integrity. 2NF (Second Normal Form) requires the table to be in 1NF and have no partial dependencies; essentially, every non-key column must depend on the entire primary key, not just part of it. 3NF (Third Normal Form) requires the table to be in 2NF and have no transitive dependencies; meaning non-key attributes must depend only on the primary key, not on other non-key attributes.",
+    "key_concepts": ["Redundancy", "Data Integrity", "Partial Dependency", "Transitive Dependency", "Primary Key", "Non-key attributes"]
+  },
+  {
+    "id": 3,
+    "topic": "Indexing",
+    "difficulty": "Advanced",
+    "question": "Explain the difference between a Clustered and a Non-Clustered Index.",
+    "answer": "A Clustered Index determines the physical order of data in a table. There can be only one clustered index per table because data rows can be stored in only one order (usually stored in a B-Tree structure). A Non-Clustered Index is a separate structure that contains keys and pointers to the actual data rows. You can have multiple non-clustered indexes on a table. Searching a non-clustered index is typically slower than a clustered one because it may require an extra lookup step.",
+    "key_concepts": ["Physical order", "B-Tree", "Pointers", "Leaf nodes", "Storage structure", "Lookup speed"]
+  },
+  {
+    "id": 4,
+    "topic": "SQL Concepts",
+    "difficulty": "Basic",
+    "question": "What is the difference between DELETE, TRUNCATE, and DROP commands?",
+    "answer": "DELETE is a DML command used to remove specific rows based on a WHERE clause; it can be rolled back and fires triggers. TRUNCATE is a DDL command that removes all rows from a table; it resets identity counters, is faster than DELETE because it logs less, and cannot usually be rolled back in some systems (though it can in SQL Server transactions). DROP is a DDL command that removes the entire table structure and data from the database completely.",
+    "key_concepts": ["DML vs DDL", "Rollback", "Triggers", "WHERE clause", "Table structure", "Identity reset"]
+  },
+  {
+    "id": 5,
+    "topic": "Distributed Databases",
+    "difficulty": "Advanced",
+    "question": "Explain the CAP Theorem.",
+    "answer": "The CAP Theorem states that a distributed data store can effectively provide only two of the following three guarantees: Consistency (every read receives the most recent write or an error), Availability (every request receives a (non-error) response, without the guarantee that it contains the most recent write), and Partition Tolerance (the system continues to operate despite an arbitrary number of messages being dropped or delayed by the network between nodes). In the presence of a network partition (P), one must choose between Consistency (C) and Availability (A).",
+    "key_concepts": ["Consistency", "Availability", "Partition Tolerance", "Distributed Systems", "Network Partition", "Trade-off"]
+  },
+  {
+    "id": 6,
+    "topic": "Indexing",
+    "difficulty": "Intermediate",
+    "question": "What is a B-Tree and why is it used in databases?",
+    "answer": "A B-Tree is a self-balancing tree data structure that maintains sorted data and allows searches, sequential access, insertions, and deletions in logarithmic time. It is widely used in databases for indexing because it minimizes disk I/O operations. The nodes of a B-Tree are designed to fit inside a disk block, maximizing the amount of data read in a single operation.",
+    "key_concepts": ["Self-balancing", "Logarithmic time", "Disk I/O", "Sorted data", "Block size", "Search efficiency"]
+  },
+  {
+    "id": 7,
+    "topic": "Concurrency",
+    "difficulty": "Advanced",
+    "question": "What is a Deadlock and how can it be handled?",
+    "answer": "A deadlock occurs when two or more transactions are waiting for each other to give up locks, resulting in a cycle where no transaction can proceed. Handling strategies include: 1) Deadlock Prevention (acquiring all locks at start), 2) Deadlock Detection (using wait-for graphs to find cycles), and 3) Timeouts (aborting a transaction if it waits too long). Typically, the DBMS kills one of the transactions (the 'victim') to break the cycle.",
+    "key_concepts": ["Circular wait", "Locks", "Wait-for graph", "Victim", "Timeout", "Prevention"]
+  },
+  {
+    "id": 8,
+    "topic": "SQL Concepts",
+    "difficulty": "Intermediate",
+    "question": "What are the different types of Joins in SQL?",
+    "answer": "1) INNER JOIN returns records that have matching values in both tables. 2) LEFT (OUTER) JOIN returns all records from the left table and matched records from the right table (NULL if no match). 3) RIGHT (OUTER) JOIN returns all records from the right table and matched records from the left. 4) FULL (OUTER) JOIN returns all records when there is a match in either left or right table. 5) CROSS JOIN returns the Cartesian product of the two tables.",
+    "key_concepts": ["Inner Join", "Left Join", "Right Join", "Full Join", "Cross Join", "Cartesian Product", "Matching values"]
+  },
+  {
+    "id": 9,
+    "topic": "Architecture",
+    "difficulty": "Intermediate",
+    "question": "Explain the difference between SQL (Relational) and NoSQL (Non-Relational) databases.",
+    "answer": "SQL databases are relational, table-based, have a predefined schema, and generally strictly follow ACID properties (e.g., MySQL, PostgreSQL). They scale vertically (adding more power to the server). NoSQL databases are document, key-value, graph, or wide-column stores with dynamic schemas (e.g., MongoDB, Cassandra). They are designed for horizontal scaling (adding more servers) and often prioritize Availability over strict Consistency (BASE model).",
+    "key_concepts": ["Schema", "ACID vs BASE", "Vertical vs Horizontal Scaling", "Table-based", "Document-based", "Structure"]
+  },
+  {
+    "id": 10,
+    "topic": "Architecture",
+    "difficulty": "Advanced",
+    "question": "What is Sharding?",
+    "answer": "Sharding is a method of horizontal partitioning that splits a large database into smaller, faster, and more easily managed parts called 'shards'. Each shard is held on a separate database server instance to spread the load. It allows the system to handle more traffic and data than a single server could, but introduces complexity in joins and transactions across shards.",
+    "key_concepts": ["Horizontal partitioning", "Scalability", "Load distribution", "Complexity", "Single point of failure"]
+  },
+  {
+    "id": 11,
+    "topic": "Concurrency",
+    "difficulty": "Advanced",
+    "question": "Explain the concept of 'Dirty Read'.",
+    "answer": "A Dirty Read occurs when a transaction reads data that has been modified by another transaction but not yet committed. If the other transaction rolls back, the data read by the first transaction is invalid. This typically happens in the 'Read Uncommitted' isolation level.",
+    "key_concepts": ["Uncommitted data", "Isolation levels", "Read Uncommitted", "Rollback", "Data validity"]
+  },
+  {
+    "id": 12,
+    "topic": "SQL Concepts",
+    "difficulty": "Basic",
+    "question": "What is a Primary Key vs a Unique Key?",
+    "answer": "A Primary Key uniquely identifies each record in a table; it cannot contain NULL values and there can be only one Primary Key per table. A Unique Key also ensures uniqueness for a column, but it allows one NULL value (in most DBs) and a table can have multiple Unique Keys.",
+    "key_concepts": ["Uniqueness", "NULL values", "Identifier", "Constraint", "Multiplicity"]
+  },
+  {
+    "id": 13,
+    "topic": "SQL Concepts",
+    "difficulty": "Intermediate",
+    "question": "What is a View and why would you use one?",
+    "answer": "A View is a virtual table based on the result-set of an SQL statement. It contains rows and columns just like a real table, but the fields are from one or more real tables. Views are used to: 1) Simplify complex queries (hiding joins), 2) Restrict access to specific columns (security), and 3) Present data in a specific format without altering the underlying schema.",
+    "key_concepts": ["Virtual table", "Security", "Abstraction", "Complex queries", "Schema protection"]
+  },
+  {
+    "id": 14,
+    "topic": "Advanced SQL",
+    "difficulty": "Advanced",
+    "question": "What is a Stored Procedure?",
+    "answer": "A Stored Procedure is a prepared SQL code that you can save, so the code can be reused over and over again. It allows for modular programming, provides better performance (as the query plan is cached), reduces network traffic (sending only the call, not the full query), and enhances security (users can execute the procedure without accessing the tables directly).",
+    "key_concepts": ["Precompiled", "Modularity", "Performance", "Network traffic", "Security", "Reusability"]
+  },
+  {
+    "id": 15,
+    "topic": "Architecture",
+    "difficulty": "Advanced",
+    "question": "What is Database Replication?",
+    "answer": "Database replication is the process of copying data from one database server (primary) to one or more other servers (replicas). This is used to increase data availability (redundancy), improve read performance (by directing read queries to replicas), and for backup purposes. Replication can be synchronous (slower, safer) or asynchronous (faster, risk of data lag).",
+    "key_concepts": ["Redundancy", "Availability", "Read performance", "Primary-Replica", "Synchronous vs Asynchronous"]
+  },
+  {
+    "id": 16,
+    "topic": "Normalization",
+    "difficulty": "Intermediate",
+    "question": "What is Denormalization?",
+    "answer": "Denormalization is the process of adding redundant data to an already normalized database to improve read performance. By adding redundant copies of data or grouping data, you reduce the number of expensive joins required in queries. It is a trade-off: you gain read speed but sacrifice write speed and storage space, and risk data inconsistency.",
+    "key_concepts": ["Redundancy", "Read performance", "Joins optimization", "Trade-off", "Write penalty"]
+  },
+  {
+    "id": 17,
+    "topic": "SQL Concepts",
+    "difficulty": "Basic",
+    "question": "What is the HAVING clause and how does it differ from WHERE?",
+    "answer": "The WHERE clause is used to filter rows *before* any grouping or aggregation takes place. The HAVING clause is used to filter groups *after* the aggregation has been performed. You cannot use aggregate functions (like SUM, COUNT) in a WHERE clause, but you can in a HAVING clause.",
+    "key_concepts": ["Filtering", "Aggregation", "Group By", "Order of execution", "Aggregate functions"]
+  },
+  {
+    "id": 18,
+    "topic": "Transactions",
+    "difficulty": "Advanced",
+    "question": "What is MVCC (Multi-Version Concurrency Control)?",
+    "answer": "MVCC is a concurrency control method used by databases to provide concurrent access without locking the database for every read. It works by keeping multiple versions of a data item. When a transaction reads data, it sees a snapshot of the data as it existed at the start of the transaction, ensuring readers don't block writers and writers don't block readers.",
+    "key_concepts": ["Snapshot", "Non-blocking", "Concurrency", "Versions", "Readers/Writers"]
+  },
+  {
+    "id": 19,
+    "topic": "SQL Concepts",
+    "difficulty": "Intermediate",
+    "question": "What is a Trigger?",
+    "answer": "A Trigger is a special type of stored procedure that automatically runs (executes) when a specific event occurs in the database server. DML triggers run when a user tries to modify data through a data manipulation language (DML) event (INSERT, UPDATE, or DELETE). They are used for enforcing complex integrity constraints, auditing changes, or automatic calculations.",
+    "key_concepts": ["Automation", "Event-driven", "Auditing", "Integrity constraints", "DML events"]
+  },
+  {
+    "id": 20,
+    "topic": "SQL Concepts",
+    "difficulty": "Basic",
+    "question": "What is a Foreign Key?",
+    "answer": "A Foreign Key is a field (or collection of fields) in one table that refers to the Primary Key in another table. It is used to link two tables together and enforce referential integrity, ensuring that the value in the foreign key column must match a valid existing value in the parent table's primary key.",
+    "key_concepts": ["Referential Integrity", "Relationship", "Parent-Child tables", "Constraints"]
+  },
+  {
+    "id": 21,
+    "topic": "Indexing",
+    "difficulty": "Advanced",
+    "question": "When would you use a Hash Index over a B-Tree Index?",
+    "answer": "Hash Indexes are optimized for equality comparisons (e.g., `WHERE name = 'John'`) and are extremely fast (O(1)) for looking up exact matches. However, they are poor for range queries (e.g., `WHERE age > 20`) or sorting. You would use a Hash Index for key-value style lookups where no range scans are needed.",
+    "key_concepts": ["Equality lookups", "O(1) complexity", "Range queries", "Exact match", "Key-Value"]
+  },
+  {
+    "id": 22,
+    "topic": "Architecture",
+    "difficulty": "Intermediate",
+    "question": "What is Connection Pooling?",
+    "answer": "Connection Pooling is a technique where a cache of database connections is maintained so that the connections can be reused when future requests to the database are required. Opening a new connection is expensive; pooling improves performance by reducing the overhead of establishing a new connection for every request.",
+    "key_concepts": ["Performance", "Reuse", "Overhead reduction", "Cache", "Latency"]
+  },
+  {
+    "id": 23,
+    "topic": "SQL Concepts",
+    "difficulty": "Basic",
+    "question": "Explain the ORDER BY clause.",
+    "answer": "The ORDER BY clause is used to sort the result-set in ascending or descending order. By default, it sorts in ascending order (ASC). To sort in descending order, the DESC keyword is used. You can sort by multiple columns.",
+    "key_concepts": ["Sorting", "Ascending", "Descending", "Result-set"]
+  },
+  {
+    "id": 24,
+    "topic": "SQL Concepts",
+    "difficulty": "Basic",
+    "question": "What is the difference between UNION and UNION ALL?",
+    "answer": "UNION combines the result sets of two or more SELECT statements and removes duplicate rows. UNION ALL also combines the result sets but includes all duplicates. UNION ALL is generally faster because it doesn't perform the duplicate removal step.",
+    "key_concepts": ["Duplicates", "Performance", "Result combination", "Set operations"]
+  },
+  {
+    "id": 25,
+    "topic": "Transactions",
+    "difficulty": "Intermediate",
+    "question": "What is the 'Phantom Read' problem?",
+    "answer": "A Phantom Read occurs when a transaction retrieves a set of rows twice and new rows are inserted into or removed from that range by another transaction in between. The first transaction sees a 'phantom' record that wasn't there before or loses a record. This is prevented by higher isolation levels like Serializable.",
+    "key_concepts": ["Insertion/Deletion", "Range query", "Isolation levels", "Inconsistency"]
+  },
+  {
+    "id": 26,
+    "topic": "SQL Concepts",
+    "difficulty": "Intermediate",
+    "question": "What are Aggregate Functions?",
+    "answer": "Aggregate functions perform a calculation on a set of values and return a single value. Common examples include COUNT() (number of rows), SUM() (total sum), AVG() (average), MIN() (minimum value), and MAX() (maximum value). They are often used with GROUP BY.",
+    "key_concepts": ["Calculation", "Single value", "Summary", "Statistical operations"]
+  },
+  {
+    "id": 27,
+    "topic": "Normalization",
+    "difficulty": "Basic",
+    "question": "What is 1NF (First Normal Form)?",
+    "answer": "1NF dictates that a table must have atomic values (no repeating groups or arrays in a single cell) and each record must be unique. Every column must contain only a single value per row.",
+    "key_concepts": ["Atomicity", "Single value", "No repeating groups", "Uniqueness"]
+  },
+  {
+    "id": 28,
+    "topic": "SQL Concepts",
+    "difficulty": "Intermediate",
+    "question": "What is a Self Join?",
+    "answer": "A Self Join is a regular join but the table is joined with itself. It is useful for querying hierarchical data or comparing rows within the same table. For example, finding employees and their managers in a single 'Employees' table.",
+    "key_concepts": ["Hierarchical data", "Table alias", "Comparing rows", "Recursive relationship"]
+  },
+  {
+    "id": 29,
+    "topic": "Architecture",
+    "difficulty": "Advanced",
+    "question": "What is WAL (Write-Ahead Logging)?",
+    "answer": "WAL is a standard method for ensuring data integrity. It works on the principle that modifications are written to a secure log file *before* they are applied to the actual data pages. This ensures that in the event of a crash, the database can recover by replaying the log.",
+    "key_concepts": ["Data integrity", "Crash recovery", "Logging", "Persistence"]
+  },
+  {
+    "id": 30,
+    "topic": "SQL Concepts",
+    "difficulty": "Advanced",
+    "question": "Explain the concept of a CTE (Common Table Expression).",
+    "answer": "A CTE is a temporary result set that you can reference within another SELECT, INSERT, UPDATE, or DELETE statement. It makes complex queries more readable and manageable. Recursive CTEs are specifically useful for traversing hierarchical data like organizational charts or trees.",
+    "key_concepts": ["Temporary result", "Readability", "Recursion", "WITH clause"]
+  },
+  {
+    "id": 31,
+    "topic": "Indexing",
+    "difficulty": "Advanced",
+    "question": "What is a Composite Index?",
+    "answer": "A Composite Index is an index on two or more columns of a table. It is effective when queries filter on multiple columns that match the order of the index. The order of columns in the index definition is critical (Left-to-Right rule).",
+    "key_concepts": ["Multiple columns", "Column order", "Query optimization", "Left-most prefix"]
+  },
+  {
+    "id": 32,
+    "topic": "SQL Concepts",
+    "difficulty": "Basic",
+    "question": "What is the LIKE operator used for?",
+    "answer": "The LIKE operator is used in a WHERE clause to search for a specified pattern in a column. It uses wildcards: '%' represents zero, one, or multiple characters, and '_' represents a single character.",
+    "key_concepts": ["Pattern matching", "Wildcards", "String search"]
+  },
+  {
+    "id": 33,
+    "topic": "Architecture",
+    "difficulty": "Advanced",
+    "question": "What is a Cursor?",
+    "answer": "A Cursor is a database object used to retrieve, manipulate, and traverse a result set row-by-row. While SQL operates on sets of data, cursors allow procedural processing of individual rows. They are generally slower and should be avoided if a set-based operation is possible.",
+    "key_concepts": ["Row-by-row", "Procedural", "Traversal", "Performance cost"]
+  },
+  {
+    "id": 34,
+    "topic": "Concurrency",
+    "difficulty": "Intermediate",
+    "question": "What is Lock Escalation?",
+    "answer": "Lock Escalation is the process where the database converts many fine-grained locks (like row locks) into fewer coarse-grained locks (like a table lock) to reduce system overhead. While it saves memory, it decreases concurrency.",
+    "key_concepts": ["Granularity", "Overhead", "Memory usage", "Concurrency reduction"]
+  },
+  {
+    "id": 35,
+    "topic": "Architecture",
+    "difficulty": "Intermediate",
+    "question": "What is Data Warehousing?",
+    "answer": "A Data Warehouse is a large, centralized repository of data accumulated from a wide range of sources within a company. It is designed for query and analysis (OLAP) rather than transaction processing (OLTP). It helps in business intelligence and reporting.",
+    "key_concepts": ["OLAP", "Analysis", "Reporting", "Historical data", "Aggregation"]
+  },
+  {
+    "id": 36,
+    "topic": "Architecture",
+    "difficulty": "Intermediate",
+    "question": "Difference between OLTP and OLAP.",
+    "answer": "OLTP (Online Transaction Processing) systems are designed for fast, high-volume transactional data processing (inserts, updates). They prioritize availability and speed of small transactions. OLAP (Online Analytical Processing) systems are designed for complex analysis of large volumes of historical data, prioritizing complex read queries and aggregation.",
+    "key_concepts": ["Transactions vs Analysis", "Real-time vs Historical", "Read vs Write focus"]
+  },
+  {
+    "id": 37,
+    "topic": "SQL Concepts",
+    "difficulty": "Intermediate",
+    "question": "What is the DISTINCT keyword?",
+    "answer": "DISTINCT is used to return only distinct (different) values in a result set. It removes duplicate rows from the output of a SELECT query.",
+    "key_concepts": ["Unique values", "Duplicate removal", "Filtering"]
+  },
+  {
+    "id": 38,
+    "topic": "SQL Concepts",
+    "difficulty": "Basic",
+    "question": "What is a NULL value?",
+    "answer": "NULL represents missing, unknown, or inapplicable data. It is not the same as zero or an empty string. Any arithmetic operation with NULL results in NULL, and comparisons require special operators like IS NULL.",
+    "key_concepts": ["Missing data", "Unknown", "Three-valued logic", "IS NULL"]
+  },
+  {
+    "id": 39,
+    "topic": "Architecture",
+    "difficulty": "Advanced",
+    "question": "What is Vertical Partitioning?",
+    "answer": "Vertical Partitioning involves splitting a table by columns. Frequent columns are kept in one table and less frequent or large text/blob columns are moved to another table, linked by the primary key. This improves I/O performance for the main table.",
+    "key_concepts": ["Splitting columns", "I/O optimization", "Normalization", "Table splitting"]
+  },
+  {
+    "id": 40,
+    "topic": "SQL Concepts",
+    "difficulty": "Basic",
+    "question": "What is the BETWEEN operator?",
+    "answer": "The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates. The range is inclusive: begin and end values are included.",
+    "key_concepts": ["Range selection", "Inclusive", "Filtering"]
+  },
+  {
+    "id": 41,
+    "topic": "Transactions",
+    "difficulty": "Advanced",
+    "question": "What is Optimistic Locking?",
+    "answer": "Optimistic Locking assumes that multiple transactions can complete without affecting each other. It does not lock the row when reading. Instead, when updating, it checks if the data has changed since it was read (usually via a version number or timestamp). If it has changed, the transaction fails.",
+    "key_concepts": ["No locks", "Version control", "Concurrency", "Check-before-update"]
+  },
+  {
+    "id": 42,
+    "topic": "Transactions",
+    "difficulty": "Advanced",
+    "question": "What is Pessimistic Locking?",
+    "answer": "Pessimistic Locking assumes that a conflict is likely. It locks the record as soon as it is selected for update, preventing any other transaction from modifying it until the lock is released. This guarantees data integrity but reduces concurrency.",
+    "key_concepts": ["Locks", "Blocking", "Data integrity", "Low concurrency"]
+  },
+  {
+    "id": 43,
+    "topic": "Architecture",
+    "difficulty": "Intermediate",
+    "question": "What is an ER Diagram?",
+    "answer": "An Entity-Relationship (ER) Diagram is a visual representation of the data model. It shows the entities (tables/objects), their attributes (columns), and the relationships (links) between them. It is used during the design phase of a database.",
+    "key_concepts": ["Modeling", "Design", "Entities", "Relationships", "Visual"]
+  },
+  {
+    "id": 44,
+    "topic": "SQL Concepts",
+    "difficulty": "Advanced",
+    "question": "What is an Injection Attack (SQL Injection) and how to prevent it?",
+    "answer": "SQL Injection is a code injection technique where an attacker inserts malicious SQL statements into entry fields for execution. It allows unauthorized access to data. It is prevented by using Parameterized Queries (Prepared Statements), input validation, and avoiding dynamic string concatenation for SQL queries.",
+    "key_concepts": ["Security vulnerability", "Malicious code", "Parameterized queries", "Input sanitization"]
+  },
+  {
+    "id": 45,
+    "topic": "SQL Concepts",
+    "difficulty": "Basic",
+    "question": "What is the difference between CHAR and VARCHAR?",
+    "answer": "CHAR is a fixed-length character data type; if the string is shorter than the length, it is padded with spaces. VARCHAR is a variable-length character type; it stores only the characters plus a small overhead for length. VARCHAR is more storage-efficient for variable-length data.",
+    "key_concepts": ["Fixed length", "Variable length", "Storage efficiency", "Padding"]
+  },
+  {
+    "id": 46,
+    "topic": "Normalization",
+    "difficulty": "Advanced",
+    "question": "What is BCNF (Boyce-Codd Normal Form)?",
+    "answer": "BCNF is a stricter version of 3NF. A table is in BCNF if it is in 3NF and for every functional dependency X -> Y, X must be a super key. It handles certain anomalies that 3NF misses, specifically when a table has multiple overlapping candidate keys.",
+    "key_concepts": ["Strict 3NF", "Super key", "Functional dependency", "Candidate keys"]
+  },
+  {
+    "id": 47,
+    "topic": "SQL Concepts",
+    "difficulty": "Intermediate",
+    "question": "What is the LIMIT clause?",
+    "answer": "The LIMIT clause is used to specify the number of records to return. It is useful on large tables with thousands of records. (Note: Syntax varies; SQL Server uses TOP, Oracle uses ROWNUM/FETCH FIRST).",
+    "key_concepts": ["Pagination", "Performance", "Result limitation"]
+  },
+  {
+    "id": 48,
+    "topic": "Architecture",
+    "difficulty": "Basic",
+    "question": "What is a Database Schema?",
+    "answer": "A schema is the skeleton structure that represents the logical view of the entire database. It defines how data is organized and how the relations among them are associated. It includes tables, views, stored procedures, and more.",
+    "key_concepts": ["Logical structure", "Blueprint", "Organization", "Tables"]
+  },
+  {
+    "id": 49,
+    "topic": "SQL Concepts",
+    "difficulty": "Intermediate",
+    "question": "What is the AS keyword?",
+    "answer": "AS is used to assign an alias to a column or a table. It makes column names more readable in the result set or simplifies table names in complex join queries.",
+    "key_concepts": ["Alias", "Readability", "Renaming"]
+  },
+  {
+    "id": 50,
+    "topic": "Architecture",
+    "difficulty": "Advanced",
+    "question": "What is a Surrogate Key?",
+    "answer": "A Surrogate Key is a system-generated unique identifier for a row, often a sequential number (Identity/Auto-Increment) or UUID. It has no business meaning, unlike a Natural Key (like SSN or Email) which is derived from the data itself.",
+    "key_concepts": ["System-generated", "No business meaning", "Identity", "UUID", "Natural Key"]
+  }
+]
+
+
